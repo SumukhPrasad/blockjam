@@ -1,0 +1,14 @@
+<div class="identity">
+
+
+  <div class="user-header">
+    <div class="user-header-text-container">
+      <h1><%= @user.name %></h1>
+      <div class="username-display">@<%= @user.username %></div>
+      <% if (user_signed_in? && @user == current_user) %>
+        <%= link_to "Edit", edit_user_registration_path %>
+      <% end %>
+    </div>
+  </div>
+  
+</div>
