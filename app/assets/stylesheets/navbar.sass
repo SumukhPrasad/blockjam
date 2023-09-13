@@ -4,10 +4,7 @@ nav
      justify-content: flex-start
      align-items: center
      padding: 2em 3em
-     position: fixed
      width: calc(100vw - 6em)
-     z-index: 10000
-     top: 0
      div
           display: inline-block;
           vertical-align: middle;
@@ -34,20 +31,3 @@ nav a
 .navigation-header-image
      width: 100%;
      margin-right: 15px;
-
-@media (prefers-color-scheme: dark)
-     nav a
-          &:hover
-               background-color: rgba(255, 255, 255, 0.05)   
-
-     .navigation-link-top
-          color: #fff !important
-          
-     .navigation-divider
-          background-color: rgba(255, 255, 255, 0.5)
-
-     .navigation-category
-          border-right: 3px solid rgba(255, 255, 255, 0.2);
-
-     .navigation-category-title
-          color: rgba(255, 255, 255, 0.75);

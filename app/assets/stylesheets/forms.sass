@@ -1,0 +1,28 @@
+@import "colors"
+
+.field
+     margin: 25px 0px;
+
+label, em
+     font-family: "Lato"
+     font-weight: bold
+
+.field
+     padding: 5px 0px
+
+input
+     line-height: 1.5;
+     padding: 10px 20px;
+     border-radius: 50px;
+     border: 1px solid $teal2;
+     font-size: 18px
+     transition: all 0.25s
+     font-family: "Lato"
+     &:focus-visible 
+          outline: none
+          box-shadow: 0 0 20px $teal1
+
+input[type="submit"]
+     background-color: $teal3
+     color: white
+     border: 0px

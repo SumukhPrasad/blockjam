@@ -10,9 +10,6 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
 	root :controller => 'index', :action => :index
 
-  resources :users, only: [:show, :update], param: :username do
-  end
-
   # Defines the root path route ("/")
   # root "articles#index"
 end
