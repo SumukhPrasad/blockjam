@@ -1,5 +1,4 @@
 ActiveAdmin.register Level do
-
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
@@ -37,12 +36,11 @@ ActiveAdmin.register Level do
 
   form do |f|
     f.inputs do
-      f.input :contest_id, :as => :select, :collection => Contest.all.map {|u| [u.name.to_s, u.id]}
+      f.input :contest_id, :as => :select, :collection => Contest.all.map { |u| [u.name.to_s, u.id] }
       f.input :level
       f.input :name
       f.input :duration, label: "Duration in minutes"
     end
     f.actions
   end
-  
 end

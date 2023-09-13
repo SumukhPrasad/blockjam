@@ -19,5 +19,4 @@ ActiveAdmin.register Contest do
     end
     f.actions
   end
-
 end
