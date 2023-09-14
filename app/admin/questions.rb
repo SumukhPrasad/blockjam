@@ -32,9 +32,9 @@
 		show do
 				ActiveStorage::Current.host = request.base_url
 			attributes_table do
-			  	row :title
+					row :title
 				row :description
-			  	row "Level" do |question|
+					row "Level" do |question|
 					link_to(Level.find_by!(:id => question.level_id).name, admin_level_path(question.level_id))
 				end
 
@@ -54,7 +54,7 @@
 				row :updated_at
 			end
 			active_admin_comments
-		   end
+			end
 
 		filter :title
 		filter :description
