@@ -1,0 +1,25 @@
+<h1><%= @heat.contest.name %> &mdash; <%= @heat.level.name %></h1>
+<h2><%= @heat.name %></h2>
+
+<p><%= @heat.contest.about %></p>
+
+<table>
+     <thead>
+          <tr>
+               <th>No.</th>
+               <th>Question</th>
+               <th>Max. score</th>
+               <th>Status</th>
+          </tr>
+     </thead>
+     <tbody>
+          <% @heat.level.questions.each do |q| %>
+               <tr>
+                    <td><%= q.question_number %></td>
+                    <td class="question-title"><%= q.title %></td>
+                    <td><%= q.score %></td>
+                    <td><%= link_to "attempt>", heat_question_path(@heat.slug, q.question_number), target: "_blank" %></td>
+               </tr>
+          <% end %>
+     </tbody>
+</table>

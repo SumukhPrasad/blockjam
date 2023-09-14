@@ -4,7 +4,7 @@
           <p>To get started, type in the slug for the heat you're taking part in:</p>
           <div class="slug-input-group">
                <%= form_with  method: :get do |form| %>
-                    blockjam::<%= form.text_field :query, placeholder: "enter a slug..", class: "slug-input-textfield" %>
+                    blockjam::<%= form.text_field :slug, placeholder: "enter a slug..", class: "slug-input-textfield" %>
                     <div class="slug-input-actions">
                     <%= form.submit "Go", class: "slug-input-go" %></div>
                <% end %>

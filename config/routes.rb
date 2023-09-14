@@ -12,4 +12,9 @@ Rails.application.routes.draw do
 
 	# Defines the root path route ("/")
 	# root "articles#index"
+
+	resources :heats, param: :slug do
+		resources :questions, param: :question_number do
+		end
+	end
 end
