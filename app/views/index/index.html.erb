@@ -1,1 +1,15 @@
-<h1>Welcome to BlockJam!</h1>
+<div class="index-content">
+     <h1>Welcome to BlockJam!</h1>
+     <% if user_signed_in? %>
+          <p>To get started, type in the slug for the heat you're taking part in:</p>
+          <div class="slug-input-group">
+               <%= form_with  method: :get do |form| %>
+                    blockjam::<%= form.text_field :query, placeholder: "enter a slug..", class: "slug-input-textfield" %>
+                    <div class="slug-input-actions">
+                    <%= form.submit "Go", class: "slug-input-go" %></div>
+               <% end %>
+          </div>
+     <% else %>
+          <p><%= link_to "Sign in", new_user_session_path %> or <%= link_to "sign up", new_user_registration_path %> to get started.</p>
+     <% end %>
+</div>
