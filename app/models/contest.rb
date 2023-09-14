@@ -4,4 +4,6 @@ class Contest < ApplicationRecord
 	end
 
 	has_many :levels, dependent: :destroy
+	has_many :questions, through: :levels, dependent: :destroy
+	has_many :heats, through: :levels, dependent: :destroy
 end
