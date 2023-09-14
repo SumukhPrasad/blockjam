@@ -57,6 +57,8 @@ gem 'rubocop-packaging'
 gem "devise"
 gem 'activeadmin'
 
+
+gem 'active_storage_validations'
 # ------------------------------------ End Other Imports -----
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
