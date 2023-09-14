@@ -1,22 +1,22 @@
 ActiveAdmin.register Heat do
 
-  # See permitted parameters documentation:
-  # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-  #
-  # Uncomment all parameters which should be permitted for assignment
-  #
-  # permit_params :name, :start_time, :slug, :level_id
-  #
-  # or
-  #
-  # permit_params do
-  #   permitted = [:name, :start_time, :slug, :level_id]
-  #   permitted << :other if params[:action] == 'create' && current_user.admin?
-  #   permitted
-  # end
+	# See permitted parameters documentation:
+	# https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
+	#
+	# Uncomment all parameters which should be permitted for assignment
+	#
+	# permit_params :name, :start_time, :slug, :level_id
+	#
+	# or
+	#
+	# permit_params do
+	#   permitted = [:name, :start_time, :slug, :level_id]
+	#   permitted << :other if params[:action] == 'create' && current_user.admin?
+	#   permitted
+	# end
 
 	permit_params :name, :start_time, :slug, :level_id
-  
+	
 	index do
 		selectable_column
 		id_column
