@@ -1,4 +1,5 @@
 class HeatsController < ApplicationController
+     before_action :authenticate_user!
      def show
           @heat = Heat.find_by(:slug => params[:slug])
           if @heat == nil

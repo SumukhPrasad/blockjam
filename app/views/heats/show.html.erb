@@ -18,7 +18,7 @@
                     <td><%= q.question_number %></td>
                     <td class="question-title"><%= q.title %></td>
                     <td><%= q.score %></td>
-                    <td><%= link_to "attempt>", heat_question_path(@heat.slug, q.question_number), target: "_blank" %></td>
+                    <td><%= link_to "View this question >", heat_question_path(@heat.slug, q.question_number), target: "_blank" %></td>
                </tr>
           <% end %>
      </tbody>
