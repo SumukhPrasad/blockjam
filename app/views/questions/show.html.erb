@@ -1,13 +1,18 @@
-<script src="<% @question.preseed.url %>"></script>
+<script src="https://unpkg.com/blockly/blockly.min.js"></script>
+<script>javascriptGenerator = javascript.javascriptGenerator</script>
+<script src="/publicAssets/blockly-init.js"></script>
+<script src="/publicAssets/JS-interpreter/interpreter.js"></script>
+
+<script defer src="<%= @preseed %>"></script>
+<script defer src="<%= @seed %>"></script>
+
+
 
 <div class="blockly-env-wrapper">
 
      <div class="blockly-editor-wrapper" id="blocklyDiv">
      </div>
-     <div class="canvas-wrapper">
+     <div class="canvas-wrapper" id="canvasDiv">
      </div>
 
 </div>
-
-<script src="https://unpkg.com/blockly/blockly.min.js"></script>
-<script src="/publicAssets/blockly-init.js"></script>

@@ -1,0 +1,3 @@
+[submodule "public/publicAssets/JS-Interpreter"]
+	path = public/publicAssets/JS-Interpreter
+	url = https://github.com/NeilFraser/JS-Interpreter/
