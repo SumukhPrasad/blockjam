@@ -193,7 +193,7 @@ function run() {
 
 
 var div=document.getElementById("canvasDiv")
-var buttonsdiv = document.createElement('button');
+var buttonsdiv = document.createElement('div');
 buttonsdiv.style = "position : absolute; bottom: 0; left: 0; padding:0;"
 
 var runbutton = document.createElement('button');
