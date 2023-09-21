@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 	# root "articles#index"
 
 	resources :heats, param: :slug do
+		get 'leaderboard', to: 'leaderboard#index'
 		resources :questions, param: :question_number do
 			post 'save_submission', to: 'submissions#save_submission'
 		end

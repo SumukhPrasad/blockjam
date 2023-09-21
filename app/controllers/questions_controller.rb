@@ -21,3 +21,5 @@ class QuestionsController < ApplicationController
           @postseed = @question.postseed.url
      end  
 end
+
+

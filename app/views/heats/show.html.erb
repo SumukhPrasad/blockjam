@@ -18,7 +18,22 @@
                     <td><%= q.question_number %></td>
                     <td class="question-title"><%= q.title %></td>
                     <td><%= q.score %></td>
-                    <td><%= link_to "View this question >", heat_question_path(@heat.slug, q.question_number), target: "_blank" %></td>
+                    <td>
+
+                         <% if Submission.find_by(
+                                   :question_id => Question.find_by(
+                                        :question_number => q.question_number, 
+                                        :level => @heat.level
+                                        ).id, 
+                                   :heat => @heat,
+                                   :user => current_user
+                                   ) %>
+                              Finished! | <%= link_to "Attempt again >", heat_question_path(@heat.slug, q.question_number), target: "_blank" %>
+                         <% else %>
+                              <%= link_to "View this question >", heat_question_path(@heat.slug, q.question_number), target: "_blank" %>
+                         <% end %>
+
+                    </td>
                </tr>
           <% end %>
      </tbody>

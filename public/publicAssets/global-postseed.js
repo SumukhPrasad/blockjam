@@ -170,6 +170,7 @@ function execute() {
                          setTimeout(() => {
                               if (cmaze.hasFinishedMaze()) {
                                    alert("Finished the maze!")
+                                   document.getElementById("submission-form").submit()
                               }
                          }, 100);
                          setTimeout(() => {
