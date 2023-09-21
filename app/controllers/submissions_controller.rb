@@ -1,17 +1,21 @@
 class SubmissionsController < ApplicationController
      def save_submission
+
           @submission = Submission.new()
 
           @heat = Heat.find_by(:slug => params[:heat_slug])
 
           @question = Question.find_by(:question_number => params[:question_question_number], :level => @heat.level)
 
-          @submission.heat = @heat
-          @submission.question = @question 
-          @submission.time = Time.now
-          @submission.user = current_user
+          if Submission.find_by(heat: @heat, question: @question, user: current_user) == nil
+               @submission.heat = @heat
+               @submission.question = @question 
+               @submission.time = Time.now
+               @submission.user = current_user
+               
+               @submission.save
+          end
           
-          @submission.save
      end
      helper_method :save_submission
 

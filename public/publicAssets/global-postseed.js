@@ -195,21 +195,19 @@ function run() {
 
 var div=document.getElementById("canvasDiv")
 var buttonsdiv = document.createElement('div');
-buttonsdiv.style = "position : absolute; bottom: 0; left: 0; padding:0;"
+buttonsdiv.style = "position : absolute; top: 20px; right: 20px; padding:0;"
 
 var runbutton = document.createElement('button');
-runbutton.style = "font-weight: bold; background: green; color: white; font-size: 18px;"
-runbutton.innerText = "RUN"
+runbutton.style = "font-weight: bold; background: green; color: white; font-size: 18px; border: 0; border-radius: 16px"
+runbutton.innerText = "Run >"
 runbutton.onclick = run;
 var stopbutton = document.createElement('button');
-stopbutton.style = "font-weight: bold; background: red; color: white;font-size: 18px;"
-stopbutton.innerText = "STOP"
+stopbutton.style = "font-weight: bold; background: red; color: white;font-size: 18px; border: 0; border-radius: 16px"
+stopbutton.innerText = "Emergency stop"
 stopbutton.onclick = function () {clearInterval(runningInterval);setTimeout(() => {workspace.highlightBlock(null);}, 1000);};
 
 buttonsdiv.appendChild(runbutton)
 buttonsdiv.appendChild(stopbutton)
-
-buttonsdiv.append("BlockJam Alpha Global Postseed")
 
 
 div.appendChild(buttonsdiv)

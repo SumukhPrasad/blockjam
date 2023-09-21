@@ -1,5 +1,11 @@
 <h1><%= @heat.contest.name %> &mdash; <%= @heat.level.name %></h1>
-<h2><%= @heat.name %></h2>
+<h2><%= @heat.name %>
+<% if @heat.start_time.to_datetime+@heat.level.duration*1.minute < Time.now.to_datetime %>
+      | This heat has ended.
+
+<% end %>
+
+</h2>
 
 <p><%= @heat.contest.about %></p>
 

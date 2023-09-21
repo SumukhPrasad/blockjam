@@ -1,1 +1,22 @@
 <h1><%= @heat.contest.name %> | <%= @heat.name %> &mdash; <%= @heat.level.name %> | Leaderboard</h1>
+
+<table>
+     <thead>
+          <tr>
+               <th>Rank</th>
+               <th>Player</th>
+               <th>Score</th>
+               <th>Time Score</th>
+          </tr>
+     </thead>
+     <tbody>
+          <% @aggr.each_with_index do |(key, value), index| %>
+               <tr>
+                    <td><%= (index+1).to_s %></td>
+                    <td><%= key %></td>
+                    <td><%= value[:score].to_s %></td>
+                    <td><%= value[:timescore].to_s %></td>
+               </tr>
+          <% end %>
+     </tbody>
+</table>
