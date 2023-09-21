@@ -3,9 +3,13 @@
 <script src="/publicAssets/blockly-init.js"></script>
 <script src="/publicAssets/JS-interpreter/interpreter.js"></script>
 <script src="/publicAssets/JS-interpreter/acorn.js"></script>
-
 <script defer src="<%= @preseed %>"></script>
 <script defer src="<%= @seed %>"></script>
+
+
+
+<%= form_with url: heat_question_save_submission_path(:question_question_number => @question.question_number ), id: "submission-form", method: :post do |form| %>
+<% end %>
 
 <script defer src="/publicAssets/global-postseed.js"></script>
 

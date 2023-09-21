@@ -1,6 +1,7 @@
 class Question < ApplicationRecord
 		belongs_to :level
 		delegate :contest, :to => :level, :allow_nil => false
+		has_many :submissions
 		has_one_attached :preseed
 		validates :preseed, attached: true, content_type: { content_type: ["text/javascript", "application/x-javascript"] }
 

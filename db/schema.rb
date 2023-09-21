@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_14_133627) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_21_083046) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -117,6 +117,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_14_133627) do
     t.index ["level_id"], name: "index_questions_on_level_id"
   end
 
+  create_table "submissions", force: :cascade do |t|
+    t.datetime "time"
+    t.integer "heat_id", null: false
+    t.integer "question_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["heat_id"], name: "index_submissions_on_heat_id"
+    t.index ["question_id"], name: "index_submissions_on_question_id"
+    t.index ["user_id"], name: "index_submissions_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "username", default: "", null: false
@@ -135,4 +147,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_14_133627) do
   add_foreign_key "heats", "levels"
   add_foreign_key "levels", "contests"
   add_foreign_key "questions", "levels"
+  add_foreign_key "submissions", "heats"
+  add_foreign_key "submissions", "questions"
+  add_foreign_key "submissions", "users"
 end

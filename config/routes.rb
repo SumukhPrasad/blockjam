@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
 	resources :heats, param: :slug do
 		resources :questions, param: :question_number do
+			post 'save_submission', to: 'submissions#save_submission'
 		end
 	end
 end

@@ -57,6 +57,7 @@ gem 'rubocop-packaging'
 gem "devise"
 gem 'activeadmin'
 
+gem 'leaderboard'
 
 gem 'active_storage_validations'
 # ------------------------------------ End Other Imports -----
