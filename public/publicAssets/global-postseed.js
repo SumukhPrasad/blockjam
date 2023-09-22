@@ -118,7 +118,7 @@ let code = "";
 javascriptGenerator.STATEMENT_PREFIX = 'window.highlightBlock(%1);\n';
 javascriptGenerator.addReservedWords('highlightBlock');
 javascriptGenerator.addReservedWords('code');
-if (browser) window.LoopTrap = 10;
+window.LoopTrap = 10;
 javascriptGenerator.INFINITE_LOOP_TRAP = 'if(--window.LoopTrap == 0) throw "Infinite loop.";\n';
 
 function highlightBlock(id) {
