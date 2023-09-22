@@ -4,56 +4,106 @@ workspace=window["blockly-workspace"]
 function drawCanvas() {
 	var c = document.getElementById("jam-canvas");
 	var ctx = c.getContext("2d");
-	for (let i = 0; i < cmaze.__getBoard().length; i++) {
-		const row = cmaze.__getBoard()[i];
-		for (let j = 0; j < row.length; j++) {
-			const tile = row[j];
+     ctx.fillStyle = "#3f9b0b";
+	ctx.fillRect(0, 0, c.width, c.height);
+	for (let i_raw = 0; i_raw < cmaze.b.length; i_raw++) {
+		const row = cmaze.b[i_raw];
+		for (let j_raw = 0; j_raw < row.length; j_raw++) {
+			const tile = row[j_raw];
 			
+               const i = ((c.height-(cmaze.b.length*50))/2)+i_raw*50;
+               const j = ((c.width-(row.length*50))/2)+j_raw*50;
+
 			ctx.fillStyle = [
-				"white", 
-				"grey", 
-				"grey", 
-				"lightgreen", 
-				"grey", 
-				"grey",
-				"white", 
-				"grey"][tile];
-			ctx.fillRect((j*50), (i*50), 50, 50);
+				"transparent", 
+				"#d4bb7e", 
+				"#d4bb7e",
+				"#d4bb7e"][tile];
+			ctx.fillRect((j)+5, (i)+5, 40, 40);
 			if (tile==2) {
 				ctx.beginPath();
-				ctx.arc((j*50)+25, (i*50)+25, 10, 0, 2 * Math.PI, false);
+				ctx.arc((j)+25, (i)+25, 10, 0, 2 * Math.PI, false);
 				ctx.fillStyle = 'gray';
 				ctx.fill();
 				ctx.lineWidth = 5;
 				ctx.strokeStyle = '#555';
 				ctx.stroke();
 			}
-			if (tile==4) {
+               if (tile==3) {
 				ctx.beginPath();
-				ctx.arc((j*50)+25, (i*50)+25, 10, 0, 2 * Math.PI, false);
-				ctx.fillStyle = 'green';
-				ctx.fill();
-				ctx.lineWidth = 5;
-				ctx.strokeStyle = '#003300';
-				ctx.stroke();
-			}
-			if (tile==6) {
-				ctx.beginPath();
-				ctx.arc((j*50)+25, (i*50)+25, 10, 0, 2 * Math.PI, false);
+				ctx.arc((j)+25, (i)+25, 10, 0, 2 * Math.PI, false);
 				ctx.fillStyle = '#faa';
 				ctx.fill();
 				ctx.lineWidth = 5;
-				ctx.strokeStyle = '#f55';
+				ctx.strokeStyle = '#f22';
 				ctx.stroke();
 			}
-			if (tile==7) {
+		}
+	}
+
+     for (let i_raw = 0; i_raw < cmaze.__getBoard().length; i_raw++) {
+		const row = cmaze.__getBoard()[i_raw];
+		for (let j_raw = 0; j_raw < row.length; j_raw++) {
+			const tile = row[j_raw];
+			
+               const i = ((c.height-(cmaze.b.length*50))/2)+i_raw*50;
+               const j = ((c.width-(row.length*50))/2)+j_raw*50;
+               
+			if (tile==4) {
 				ctx.beginPath();
-				ctx.arc((j*50)+25, (i*50)+25, 10, 0, 2 * Math.PI, false);
-				ctx.fillStyle = 'lightgreen';
+				ctx.arc((j)+25, (i)+25, 10, 0, 2 * Math.PI, false);
+				ctx.fillStyle = '#0077ff';
 				ctx.fill();
 				ctx.lineWidth = 5;
-				ctx.strokeStyle = 'green';
+				ctx.strokeStyle = '#006cff';
 				ctx.stroke();
+
+
+				ctx.fillStyle = '#fff';
+                    ctx.lineWidth = 2;
+                    ctx.strokeStyle = '#006cff';
+                    switch (cmaze.heading) {
+                         case 1:
+                              ctx.beginPath();
+                              ctx.moveTo((j)+25, (i)+10); // top
+                              ctx.lineTo((j)+15, (i)+40); // bottom left
+                              ctx.lineTo((j)+25, (i)+35); // bottom center
+                              ctx.lineTo((j)+35, (i)+40); // bottom right
+                              ctx.lineTo((j)+25, (i)+10); // top
+                              ctx.fill();
+                              ctx.stroke();
+                              break;
+                         case 2:
+                              ctx.beginPath();
+                              ctx.moveTo((j)+40, (i)+25); // top
+                              ctx.lineTo((j)+10, (i)+15); // bottom left
+                              ctx.lineTo((j)+15, (i)+25); // bottom center
+                              ctx.lineTo((j)+10, (i)+35); // bottom right
+                              ctx.lineTo((j)+40, (i)+25); // top
+                              ctx.fill();
+                              ctx.stroke();
+                              break;
+                         case 3:     
+                              ctx.beginPath();
+                              ctx.moveTo((j)+25, (i)+40); // top
+                              ctx.lineTo((j)+15, (i)+10); // bottom left
+                              ctx.lineTo((j)+25, (i)+15); // bottom center
+                              ctx.lineTo((j)+35, (i)+10); // bottom right
+                              ctx.lineTo((j)+25, (i)+40); // top
+                              ctx.fill();
+                              ctx.stroke();
+                              break;
+                         case 4:
+                              ctx.beginPath();
+                              ctx.moveTo((j)+10, (i)+25); // top
+                              ctx.lineTo((j)+40, (i)+15); // bottom left
+                              ctx.lineTo((j)+35, (i)+25); // bottom center
+                              ctx.lineTo((j)+40, (i)+35); // bottom right
+                              ctx.lineTo((j)+10, (i)+25); // top
+                              ctx.fill();
+                              ctx.stroke();
+                              break;
+                    }
 			}
 		}
 	}

@@ -8,6 +8,7 @@
 </h2>
 
 <p><%= @heat.contest.about %></p>
+<p><%= link_to "Leaderboard", heat_leaderboard_path(:heat_slug => @heat.slug) %></p>
 
 <table>
      <thead>

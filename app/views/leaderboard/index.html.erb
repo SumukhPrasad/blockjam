@@ -10,12 +10,12 @@
           </tr>
      </thead>
      <tbody>
-          <% @aggr.each_with_index do |(key, value), index| %>
+          <% @aggr.sort_by { |score| [-score[:score], -score[:timescore]] }.each_with_index do | scoreobj, index | %>
                <tr>
                     <td><%= (index+1).to_s %></td>
-                    <td><%= key %></td>
-                    <td><%= value[:score].to_s %></td>
-                    <td><%= value[:timescore].to_s %></td>
+                    <td><%= scoreobj[:name] %></td>
+                    <td><%= scoreobj[:score].to_s %></td>
+                    <td><%= scoreobj[:timescore].to_s %></td>
                </tr>
           <% end %>
      </tbody>

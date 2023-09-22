@@ -10,9 +10,13 @@ class LeaderboardController < ApplicationController
 
           all_submissions = Submission.where(:heat => @heat)
 
-          @aggr=aggregate_all_scores(all_submissions)
+          @aggr_obj=aggregate_all_scores(all_submissions)
 
-          puts @aggr
+          @aggr = []
+
+          @aggr_obj.each { |(key, value)|
+               @aggr.append( {name: key, score: value[:score], timescore: value[:timescore]} )
+          }
           
      end  
 
@@ -23,11 +27,11 @@ class LeaderboardController < ApplicationController
                if scores[submission.user.username] == nil
                     scores[submission.user.username] = {
                          score: submission.question.score,
-                         timescore: (((submission.heat.start_time.to_datetime + submission.level.duration*1.minute) - submission.time.to_datetime)  * 24 * 60).to_i
+                         timescore: (((submission.heat.start_time.to_datetime + submission.level.duration*1.minute) - submission.time.to_datetime)  * 24 * 60 * 60).to_i
                     }
                else
-                    scores[submission.user.username].score += submission.question.score
-                    scores[submission.user.username].timescore += submission.heat.start_time + submission.level.duration*1.minute - submission.time
+                    scores[submission.user.username][:score] += submission.question.score
+                    scores[submission.user.username][:timescore] += submission.heat.start_time + submission.level.duration*1.minute - submission.time
                end
           }
 

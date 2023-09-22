@@ -7,7 +7,7 @@ class SubmissionsController < ApplicationController
 
           @question = Question.find_by(:question_number => params[:question_question_number], :level => @heat.level)
 
-          if Submission.find_by(heat: @heat, question: @question, user: current_user) == nil
+          if Submission.find_by(heat: @heat, question: @question, user: current_user) == nil && (@heat.start_time.to_datetime + @heat.level.duration*1.minute) > Time.now.to_datetime
                @submission.heat = @heat
                @submission.question = @question 
                @submission.time = Time.now
