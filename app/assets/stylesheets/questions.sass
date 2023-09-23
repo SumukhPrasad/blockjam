@@ -1,0 +1,110 @@
+@import "colors"
+
+.blockly-env-wrapper
+	width: 100vw
+	height: 100vh
+	position: fixed
+	left: 0
+	top: 0
+	background-color: rgba(0, 0, 0, 0.75)
+
+	.blockly-editor-wrapper
+		width: 50vw
+		height: 100vh
+		position: absolute
+		left: 0
+
+	.canvas-wrapper
+		width: 50vw
+		height: 100vh
+		position: absolute
+		right: 0
+
+	.error
+		.title
+			font-family: 'Lato'
+			font-weight: bold
+			font-size: 50px
+			color: $color-red2
+
+		.copy
+			font-family: 'Source Serif 4'
+			font-weight: normal
+			color: white
+
+@import "colors"
+   
+.action-button
+     border-radius: 200px
+     display: inline-block
+     font-weight: bold
+     font-size: 1.0em
+     font-family: 'Lato'
+     line-height: 12px
+     text-decoration: none
+     background-color: #FFFFFF
+     background-image: linear-gradient(180deg, #FFFFFF, #E7E7E7)
+     box-shadow: 0 0 1px rgba(0, 0, 0, 0.1), 0 1px 0 0 rgba(255, 255, 255, 0.8) inset
+     border: solid 1px #c7c7c7
+     border-color: #c7c7c7
+     border-top-color: #d3d3d3
+     border-right-color: #c7c7c7
+     border-bottom-color: #c2c2c2
+     border-left-color: #c7c7c7
+     text-shadow: #fff 0 1px 0
+     color: #5E6469
+     padding: 12px 17px 10px
+     margin: 5px
+     &:hover
+          background-color: #FFFFFF
+          background-image: linear-gradient(180deg, #FFFFFF, #F1F1F1)
+     &:active
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.22) inset, 0 1px 0 0px #EEE;
+          border-color: #b9b9b9;
+          border-top-color: #c2c2c2;
+          border-right-color: #b9b9b9;
+          border-bottom-color: #b7b7b7;
+          border-left-color: #b9b9b9;
+          background-color: #F3F3F3;
+          background-image: linear-gradient(180deg, #F3F3F3, #D8D8D8);
+
+.submitted-notification
+     border-radius: 200px
+     display: block
+     font-weight: bold
+     font-size: 1.0em
+     font-family: 'Lato'
+     line-height: 12px
+     text-decoration: none
+     background-color: #FFFFFF
+     background-image: linear-gradient(180deg, #FFFFFF, #E7E7E7)
+     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5), 0 1px 0 0 rgba(255, 255, 255, 0.8) inset
+     border: solid 1px #c7c7c7
+     border-color: #c7c7c7
+     border-top-color: #d3d3d3
+     border-right-color: #c7c7c7
+     border-bottom-color: #c2c2c2
+     border-left-color: #c7c7c7
+     text-shadow: #fff 0 1px 0
+     padding: 12px 17px 10px
+     margin: 5px
+     color: #5e6469
+     position: fixed
+     left: 50%
+     transform: translateX(-50%)
+     bottom: -100%
+     animation: appear 1s ease forwards
+     z-index: 9999
+
+
+@keyframes appear
+     50%
+          bottom: 25px
+     80%
+          padding: 12px 20px 10px
+          bottom: 20px
+     100%
+          width: fit-content
+          padding: 12px 17px 10px  
+          bottom: 20px
+

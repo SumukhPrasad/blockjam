@@ -7,6 +7,7 @@
 <script defer src="<%= @seed %>"></script>
 <script defer src="<%= @postseed %>"></script>
 
+<script>window["heat-path"]="<%= heat_path(params[:heat_slug]) %>"</script>
 
 <%= form_with url: heat_question_save_submission_path(:question_question_number => @question.question_number ), id: "submission-form", method: :post do |form| %>
 <% end %>
