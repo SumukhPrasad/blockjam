@@ -6,7 +6,7 @@ class Heat < ApplicationRecord
 			["created_at", "id", "level_id", "name", "slug", "start_time", "updated_at"]
 		end
 
-		validates :name, presence :true
-		validates :start_time, presence :true
-		validates :slug, presence :true
+		validates :name, :presence => true
+		validates :start_time, :presence => true
+		validates :slug, :presence => true
 end

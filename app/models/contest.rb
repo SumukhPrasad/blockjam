@@ -3,8 +3,8 @@ class Contest < ApplicationRecord
 		["about", "created_at", "id", "name", "updated_at"]
 	end
 
-	validates :name, presence :true
-	validates :about, presence :true
+	validates :name, :presence => true
+	validates :about, :presence => true
 
 	has_many :levels, dependent: :destroy
 	has_many :questions, through: :levels, dependent: :destroy
