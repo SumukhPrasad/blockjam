@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.1.3"
+ruby "~> 3.1"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.8"
@@ -56,8 +56,6 @@ gem 'rubocop-packaging'
 # Users and Authentication
 gem "devise"
 gem 'activeadmin'
-
-gem 'leaderboard'
 
 gem 'active_storage_validations'
 # ------------------------------------ End Other Imports -----
