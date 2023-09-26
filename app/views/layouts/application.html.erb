@@ -38,10 +38,7 @@
 		<%= yield %>
 	</main>
 
-	<% if Rails.env.development? %>
-		<%= render :partial => "layouts/envsash" %>
-	<% end %>
-	
+	<%= render :partial => "layouts/envsash" %>
 
 	</body>
 </html>

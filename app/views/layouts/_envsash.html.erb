@@ -1,1 +1,9 @@
-<div class="envsash">development<span> - </span></div>
+<div class="envsash">
+
+     <% if Rails.env.development? %>
+          development
+     <% else %>
+          BlockJam 23
+     <% end %>
+
+<span> - </span></div>
