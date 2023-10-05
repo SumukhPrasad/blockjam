@@ -6,9 +6,11 @@ RUN apt-get update \
 	&& rm -rf /var/lib/apt/lists/*
 
 WORKDIR /usr/src/app
-
-COPY . .
+RUN git clone https://github.com/sumukhprasad/blockjam .
 RUN bundle install
+
+COPY ./config/credentials.yml.enc ./config/credentials.yml.enc
+COPY ./config/master.key ./config/master.key
 
 RUN RAILS_ENV=production rails db:create db:migrate db:seed
 RUN RAILS_ENV=production rails assets:precompile
