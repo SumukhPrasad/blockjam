@@ -3,9 +3,9 @@
 <script src="/publicAssets/blockly-init.js"></script>
 <script src="/publicAssets/JS-Interpreter/interpreter.js"></script>
 <script src="/publicAssets/JS-Interpreter/acorn.js"></script>
-<script defer src="<%= @preseed %>"></script>
-<script defer src="<%= @seed %>"></script>
-<script defer src="<%= @postseed %>"></script>
+<script defer type="text/javascript" src="<%= @preseed %>"></script>
+<script defer type="text/javascript" src="<%= @seed %>"></script>
+<script defer type="text/javascript" src="<%= @postseed %>"></script>
 
 <script>window["heat-path"]="<%= heat_path(params[:heat_slug]) %>"</script>
 
