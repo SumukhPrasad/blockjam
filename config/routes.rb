@@ -17,6 +17,9 @@ Rails.application.routes.draw do
 		get 'leaderboard', to: 'leaderboard#index'
 		resources :questions, param: :question_number do
 			post 'save_submission', to: 'submissions#save_submission'
+			get 'preseedfile', to: 'seed#preseedfile'
+			get 'seedfile', to: 'seed#seedfile'
+			get 'postseedfile', to: 'seed#postseedfile'
 		end
 	end
 end

@@ -16,9 +16,9 @@ class QuestionsController < ApplicationController
 					if @question == nil
 							redirect_to heat_path(@heat.slug), flash: {alert: "Question does not exist."}
 					end
-					@preseed = @question.preseed.url
-					@seed = @question.seed.url
-					@postseed = @question.postseed.url
+					@preseed = heat_question_preseedfile_path(@heat.slug, @question)+".js"
+					@seed = heat_question_seedfile_path(@heat.slug, @question)+".js"
+					@postseed = heat_question_postseedfile_path(@heat.slug, @question)+".js"
 		end  
 end
 
