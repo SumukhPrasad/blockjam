@@ -1,5 +1,6 @@
 class SeedController < ApplicationController
      respond_to :js
+     protect_from_forgery unless: -> { request.format.js? }
 
      def preseedfile
           @heat = Heat.find_by(:slug => params[:heat_slug])
