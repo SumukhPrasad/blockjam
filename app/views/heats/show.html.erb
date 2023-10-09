@@ -2,8 +2,11 @@
 <h2><%= @heat.name %>
 <% if @heat.start_time.to_datetime+@heat.level.duration*1.minute < Time.now.to_datetime %>
       | This heat has ended.
-
+<% else %>
+      | <%= (((@heat.start_time.to_datetime + @heat.level.duration*1.minute) - Time.now.to_datetime)  * 24 * 60 ).to_i %> minutes left
 <% end %>
+
+
 
 </h2>
 
