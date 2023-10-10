@@ -12,6 +12,7 @@ WORKDIR /usr/src/app
 RUN git clone https://github.com/sumukhprasad/blockjam .
 RUN rm config/credentials.yml.enc
 RUN bundle install
+RUN git submodule update --init
 RUN RAILS_ENV=production EDITOR=echo rails credentials:edit
 
 RUN RAILS_ENV=production rails db:create db:migrate db:seed
