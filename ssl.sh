@@ -1,9 +1,30 @@
-ssl_dir='ssllocal'
-mkdir -p $ssl_dir
-openssl genrsa -des3 -passout pass:x -out $ssl_dir/server.pass.key 2048
+#!/bin/bash
+mkdir /usr/src/app/certs
+CONFIG="
+HOME            = /usr/src/app
+[ req ]
+default_bits        = 4096
+default_md          = sha256
+distinguished_name  = req_distinguished_name
+prompt              = no
+x509_extensions         = v3_req
+[ req_distinguished_name ]
+countryName=        IN
+stateOrProvinceName=    Karnataka
+localityName=       Bangalore
+organizationName=   Company
+organizationalUnitName= Unit
+commonName=     *
+[ v3_req ]
+basicConstraints = CA:FALSE
+keyUsage = digitalSignature, keyEncipherment
+extendedKeyUsage = serverAuth
+subjectAltName = email:admin@localhost
 
-openssl rsa -passin pass:x -in $ssl_dir/server.pass.key -out $ssl_dir/server.key
+"
 
-rm $ssl_dir/server.pass.key
-openssl req -new -key $ssl_dir/server.key -out $ssl_dir/server.csr
-openssl x509 -req -days 365 -in $ssl_dir/server.csr -signkey $ssl_dir/server.key -out $ssl_dir/server.crt
+openssl genrsa -out /usr/src/app/config/cert.key 4096
+
+openssl req -x509 -new -nodes -key /usr/src/app/config/cert.key \
+            -config <(echo "$CONFIG") -days 365 \
+            -out /usr/src/app/config/cert.crt
