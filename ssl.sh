@@ -20,11 +20,10 @@ basicConstraints = CA:FALSE
 keyUsage = digitalSignature, keyEncipherment
 extendedKeyUsage = serverAuth
 subjectAltName = email:admin@localhost
-
 "
 
 openssl genrsa -out /usr/src/app/config/cert.key 4096
 
 openssl req -x509 -new -nodes -key /usr/src/app/config/cert.key \
-            -config $CONFIG -days 365 \
+            -config "$CONFIG" -days 365 \
             -out /usr/src/app/config/cert.crt
