@@ -48,4 +48,49 @@ ActiveAdmin.register Heat do
 		f.actions
 	end
 
+
+	show do
+		all_submissions = Submission.where(:heat => heat)
+		@aggr_obj=controller.aggregate_all_scores(all_submissions)
+		@aggr = []
+		@aggr_obj.each { |(key, value)|
+			@aggr.append( {name: key, score: value[:score], timescore: value[:timescore]} )
+		}
+		
+
+		tabs do
+			tab :about do
+				default_main_content
+			end
+		   
+			tab :leaderboard do
+				table_for (@aggr.sort_by { |score| [-score[:score], -score[:timescore]] }) do
+					column "Name",		:name
+					column "Score",	:score
+					column "Time score",:timescore
+				end
+			end
+		end
+
+	end
+
+	
+	
+	controller do
+		def aggregate_all_scores submissions
+			scores = {}
+			submissions.each { |submission|
+				if scores[submission.user.username] == nil
+					scores[submission.user.username] = {
+						score: submission.question.score,
+						timescore: (((submission.heat.start_time.to_datetime + submission.level.duration*1.minute) - submission.time.to_datetime)  * 24 * 60 * 60).to_i
+					}
+				else
+					scores[submission.user.username][:score] += submission.question.score
+					scores[submission.user.username][:timescore] += submission.heat.start_time + submission.level.duration*1.minute - submission.time
+				end
+			}
+			return scores
+		end
+	end
 end
