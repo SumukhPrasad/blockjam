@@ -1,6 +1,6 @@
 <h1><%= @heat.contest.name %> &mdash; <%= @heat.level.name %></h1>
 <h2><%= @heat.name %>
-<% if @heat.start_time.to_datetime+@heat.level.duration*1.minute < Time.now.to_datetime %>
+<% if (((@heat.start_time.to_datetime + @heat.level.duration*1.minute) - Time.now.to_datetime)  * 24 * 60 ).to_i < 1 %>
       | This heat has ended.
 <% else %>
       | <%= (((@heat.start_time.to_datetime + @heat.level.duration*1.minute) - Time.now.to_datetime)  * 24 * 60 ).to_i %> minutes left
