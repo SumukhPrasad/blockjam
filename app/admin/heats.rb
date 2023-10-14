@@ -62,7 +62,7 @@ ActiveAdmin.register Heat do
 			tab :about do
 				default_main_content
 			end
-		   
+			
 			tab :leaderboard do
 				table_for (@aggr.sort_by { |score| [-score[:score], -score[:timescore]] }) do
 					column "Name",		:name
