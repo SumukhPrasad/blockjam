@@ -8,5 +8,5 @@ class Heat < ApplicationRecord
 
 		validates :name, :presence => true
 		validates :start_time, :presence => true
-		validates :slug, :presence => true
+		validates :slug, :presence => true, uniqueness: true
 end

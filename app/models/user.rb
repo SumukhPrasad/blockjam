@@ -6,5 +6,5 @@ class User < ApplicationRecord
 
 	devise :database_authenticatable, :registerable,
 				:recoverable, :rememberable, :validatable
-	validates :username, format: { without: /\s/ }
+	validates :username, format: { without: /\s/ }, uniqueness: true
 end
