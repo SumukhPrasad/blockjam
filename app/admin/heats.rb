@@ -74,7 +74,8 @@ ActiveAdmin.register Heat do
 
 			tab :countdown do
 				h1 "Countdown"
-				
+
+				render partial: "admin/heats/countdown", locals: { date: ((heat.start_time.to_datetime + heat.level.duration*1.minute)).strftime('%a %b %d %y %H:%M:%S GMT%z') }, formats: [:erb, :html]
 			end
 		end
 
