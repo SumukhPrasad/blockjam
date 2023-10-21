@@ -64,11 +64,17 @@ ActiveAdmin.register Heat do
 			end
 			
 			tab :leaderboard do
+				h1 "Leaderboard"
 				table_for (@aggr.sort_by { |score| [-score[:score], -score[:timescore]] }) do
 					column "Name",		:name
 					column "Score",	:score
 					column "Time score",:timescore
 				end
+			end
+
+			tab :countdown do
+				h1 "Countdown"
+				
 			end
 		end
 
